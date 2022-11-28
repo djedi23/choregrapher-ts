@@ -1,0 +1,49 @@
+{
+  "application": {
+    "name": "graphql-choregrapher",
+    "releasenumber": "RELEASENUMBER",
+    "gittag": "GITTAG",
+    "gitbranch": "GITBRANCH"
+  },
+  "queue": {
+    "prefetch": 8,
+    "url": "amqp://admin:admin@localhost",
+    "exchanges": {
+      "events": {
+        "name": "flow"
+      }
+    },
+    "queues": {
+      "events": {
+        "name": "flow_queue",
+        "bindings": [],
+        "routingkey": "flow"
+      }
+    }
+  },
+  "storage": {
+    "bucket": "choragrapher",
+    "connection": {
+      "url": "mongodb://localhost",
+      "database": "test"
+    }
+  },
+  "log": {
+    "level": "silly",
+    "dir": "/var/log/graphql-choregrapher",
+    "sentry": {
+      "disabled": true,
+      "dsn": ""
+    },
+    "logstash": {
+      "level": "info",
+      "disabled": true,
+      "host": "",
+      "auth": {
+        "username": "",
+        "password": ""
+      },
+      "ssl": true
+    }
+  }
+}

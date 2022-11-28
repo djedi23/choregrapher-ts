@@ -1,0 +1,15 @@
+{
+  "extends": "@manuth/tslint-presets/recommended",
+  "rules": {
+    "quotemark": [true, "single", "avoid-escape", "avoid-template"],
+    "completed-docs": false,
+    "comment-format": false,
+    "match-default-export-name": false,
+    "interface-name": false,
+    "variable-name": {
+      "options": ["allow-leading-underscore"]
+    },
+    "curly": false,
+    "object-literal-key-quotes": [true, "as-needed"]
+  }
+}

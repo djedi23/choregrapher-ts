@@ -1,0 +1,29 @@
+version: '3'
+services:
+  db:
+    image: mongo:latest
+    volumes:
+      - ./mongo:/docker-entrypoint-initdb.d
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_DATABASE=test
+
+  mongo-express:
+    image: mongo-express:latest
+    links:
+      - db:mongo
+    ports:
+      - 8081:8081
+
+
+  rabbitmq:
+    image: rabbitmq:3.8-management-alpine
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+    ports:
+      - 15672:15672
+      - 5672:5672
+    restart: always
+
